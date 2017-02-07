@@ -1,5 +1,5 @@
 #include <GL/glut.h>
-//Finished
+
 void displayMe(void)
 {
     //glClear(GL_COLOR_BUFFER_BIT);
