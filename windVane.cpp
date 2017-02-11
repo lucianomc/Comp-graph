@@ -1,6 +1,6 @@
 #include <iostream>
 #include <GL/glut.h>
-//adiciano para teste
+
 using namespace std;
 
 GLsizei w = 400, h = 400;
