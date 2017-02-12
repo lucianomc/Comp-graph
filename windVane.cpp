@@ -5,9 +5,17 @@ using namespace std;
 
 GLsizei w = 400, h = 400;
 
-GLfloat c1 = 0.03,
-        c2 = 0.05,
-        c3 = 0.07;
+int color = 0;
+
+float   r = 0.0,
+        g = 0.0,
+        b = 0.0;
+
+// GLfloat c1 = 0.03,
+//         c2 = 0.05,
+//         c3 = 0.07;
+
+void mouse (int button, int state, int x, int y);
 
 //parametros de redering
 void init(void)
@@ -23,34 +31,34 @@ void displayMe(void)
     glClear(GL_COLOR_BUFFER_BIT); 
 
     glBegin(GL_LINES);
-        glColor3f(1.0f, 0.0f, 0.0f);
+        glColor3f(1.0f, 1.0f, 1.0f);
         glVertex3f(0.0, 0.0, 0.0);
         glVertex3f(0.0, -0.7, 0.0);
     glEnd();
 
     glBegin(GL_POLYGON);
-        glColor3f(0.0f + c1, 0.0f, 0.0f);
+        glColor3f(r, g, b);
         glVertex3f(0.0, 0.0, 0.0);
         glVertex3f(0.5, -0.2, 0.0);
         glVertex3f(0.5, 0.2, 0.0);
     glEnd();
 
     glBegin(GL_POLYGON);
-        glColor3f(0.1f + c1, 0.0f, 0.0f);
+        glColor3f(r, g, b);
         glVertex3f(0.0, 0.0, 0.0);
         glVertex3f(0.2, 0.5, 0.0);
         glVertex3f(-0.2, 0.5, 0.0);
     glEnd();
 
     glBegin(GL_POLYGON);
-        glColor3f(0.2f + c1, 0.0f, 0.0f);
+        glColor3f(r, g, b);
         glVertex3f(0.0, 0.0, 0.0);
         glVertex3f(-0.5, 0.2, 0.0);
         glVertex3f(-0.5, -0.2, 0.0);
     glEnd();
 
     glBegin(GL_POLYGON);
-        glColor3f(0.3f + c1, 0.0f, 0.0f);
+        glColor3f(r, g, b);
         glVertex3f(0.0, 0.0, 0.0);
         glVertex3f(0.2, -0.5, 0.0);
         glVertex3f(-0.2, -0.5, 0.0);
@@ -76,18 +84,46 @@ void changeWindowSize( GLsizei w, GLsizei h){
 }
 
 void mouse (int button, int state, int x, int y)
-{
-    if (button == GLUT_LEFT_BUTTON){
-        c1 += 0.05;
-        c2 += 0.05;
-        c3 += 0.05;
-        //cout << "entrou";
+{   
+        if (button == GLUT_LEFT_BUTTON){
+            if(state == GLUT_DOWN){
+                color++;
+                switch(color){
+                    case 1:
+                        r = 0.0f;
+                        g = 0.0f;
+                        b = 0.0f;
+                        glutPostRedisplay();
+                        break;
+                    case 2:
+                        r = 0.0f;
+                        g = 1.0f;
+                        b = 0.0f;
+                        glutPostRedisplay();
+                        break;
+                    case 3:
+                        r = 0.0f;
+                        g = 0.0f;
+                        b = 1.0f;
+                        glutPostRedisplay();
+                        break;
+                    case 4:
+                        r = 1.0f;
+                        g = 1.0f;
+                        b = 1.0f;
+                        glutPostRedisplay();
+                        break;
+                    default:
+                        color = 0;
+                        r = 0.0f;
+                        g = 0.0f;
+                        b = 0.0f;
+                        glutPostRedisplay();
+                        break;        
+            }
+        }
     }
-    else
-        c1 -= 0.05;
-        c2 -= 0.05;
-        c3 -= 0.05;
-    glutPostRedisplay();
+        // glutPostRedisplay();
 }
 
 int main(int argc, char** argv)
