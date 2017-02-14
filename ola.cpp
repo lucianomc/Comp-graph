@@ -15,9 +15,8 @@ void displayMe(void)
 {
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    glClear(GL_COLOR_BUFFER_BIT); 
+    glClear(GL_COLOR_BUFFER_BIT);
     glRotatef(a, 1, 0, 0);
-
     //Square model
 	// glVertex3f(0.0, 0.0, 0.0);
 	// glVertex3f(0.0, 0.1, 0.0);
@@ -40,25 +39,41 @@ void displayMe(void)
 		glVertex3f(-0.55, 0.5, 0.0);       
     glEnd();
 
+    glBegin(GL_QUADS);
+        glColor3f(0.0f, 0.0f, 1.0f);
+        glVertex3f(-0.40, 0.7, 0.0);
+        glVertex3f(-0.30, 0.7, 0.0);
+        glVertex3f(-0.30, 0.5, 0.0);
+        glVertex3f(-0.40, 0.5, 0.0);       
+    glEnd();
+
+    glBegin(GL_QUADS);
+        glColor3f(0.0f, 1.0f, .0f);
+        glVertex3f(-0.25, 0.7, 0.0);
+        glVertex3f(-0.15, 0.7, 0.0);
+        glVertex3f(-0.15, 0.5, 0.0);
+        glVertex3f(-0.25, 0.5, 0.0);       
+    glEnd();
+
     glutPostRedisplay();
     glFlush();
 }
 
 void mouse (int button, int state, int x, int y)
 {   
-    if (button == GLUT_LEFT_BUTTON){
-    	if(button == GLUT_DOWN){
-           	a += 3;
-        	cout << a << " + \n";
-        	glutPostRedisplay();
-        }
-    } 
-    else if(button == GLUT_RIGHT_BUTTON){
-    	if(button == GLUT_DOWN){
-           	a -= 3;
-           	cout << a << " - ";
-           	glutPostRedisplay();
-        }	
+    switch(button){
+        case GLUT_LEFT_BUTTON:
+               	a += 10;
+            	cout << a << " + \n";
+            	glutPostRedisplay();
+                break;
+        case GLUT_RIGHT_BUTTON:
+        	//if(button == GLUT_DOWN){
+               	a -= 10;
+               	cout << a << " - ";
+               	glutPostRedisplay();
+                break;
+            //}	
     }
 }
 
