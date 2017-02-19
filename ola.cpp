@@ -3,8 +3,7 @@
 
 using namespace std;
 
-float   a = 0.0f;
-
+float a = 0.0f;
 
 void init(void)
 {
@@ -29,25 +28,19 @@ void displayMe(void)
 		glVertex3f(-0.7, 0.5, 0.0);
 		glVertex3f(-0.6, 0.5, 0.0);
 		glVertex3f(-0.6, 0.7, 0.0);       
-    glEnd();
 
-    glBegin(GL_QUADS);
         glColor3f(1.0f, 0.0f, 0.0f);
         glVertex3f(-0.55, 0.7, 0.0);
 		glVertex3f(-0.45, 0.7, 0.0);
 		glVertex3f(-0.45, 0.5, 0.0);
 		glVertex3f(-0.55, 0.5, 0.0);       
-    glEnd();
 
-    glBegin(GL_QUADS);
         glColor3f(0.0f, 0.0f, 1.0f);
         glVertex3f(-0.40, 0.7, 0.0);
         glVertex3f(-0.30, 0.7, 0.0);
         glVertex3f(-0.30, 0.5, 0.0);
         glVertex3f(-0.40, 0.5, 0.0);       
-    glEnd();
 
-    glBegin(GL_QUADS);
         glColor3f(0.0f, 1.0f, .0f);
         glVertex3f(-0.25, 0.7, 0.0);
         glVertex3f(-0.15, 0.7, 0.0);

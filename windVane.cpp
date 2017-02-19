@@ -189,13 +189,13 @@ void mouse (int button, int state, int x, int y)
     if (button == GLUT_LEFT_BUTTON){
         if(state == GLUT_DOWN){
             color++;
-            changeColor(color);
+            changeColor(color%4);
         }
     }
     else if(button == GLUT_RIGHT_BUTTON){
         if (state == GLUT_DOWN){
             color--;
-            changeColor(color);
+            changeColor(color%4);
         }
     }
 
